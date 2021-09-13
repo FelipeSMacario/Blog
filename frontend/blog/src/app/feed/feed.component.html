@@ -11,9 +11,11 @@
                   <a href="#" target="_blank" class="btn btn-outline-dark d-flex justify-content-center">Github</a>
 
                   <hr class="mt-4 mb-4">
-                  <h6 class="mb-3 font-monospace text-center">Pesquisar por título</h6>
-                  <input type="text" class="form-control mb-3 w-100">
-                  <button class="btn btn-outline-warning w-100">Pesquisar</button>
+                  
+                    <h6 class="mb-3 font-monospace text-center">Pesquisar por nome</h6>
+                    <input type="text" class="form-control mb-3 w-100" [(ngModel)]="filtragem">                    
+                    <button class="btn btn-outline-warning w-100" (click)="filtrarMensagem(filtragem)">Pesquisar</button>
+                
                 </div>
               </div>
         </div>
@@ -30,7 +32,7 @@
                 <div class="form-group">
                     <label for="mensagem" class="font-monospace">Texto</label>
                     <textarea name="mensagem" id="mensagem" cols="30" rows="4" class="form-control mb-2" placeholder="Digite a sua mensagem" [(ngModel)]="post.mensagem">
-
+                        
                     </textarea>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-outline-info w-25" (click)="cadastrarMensagem()">Publicar</button>
@@ -43,10 +45,13 @@
             <h3 class="text-center mb-5 font-monospace">Comentários adicionados</h3>
             <div class="container">
                 <div class="card mb-4" *ngFor="let post of listPost">
-                    <div class="card-header">
+                    <div class="card-header socialcard">
                         <h5 class="card-title">{{post.id}}</h5>
+                        <a (click)="excluir(post.id)" class="icoITrash" title="Excluir">
+                            <fa-icon [icon]="faTrash" class="p-2"></fa-icon>
+                          </a>
                     </div>
-                    <div class="card-body">
+                    <div  class="card-body">
                         <p class="card-text">{{post.nome}}</p>
                         <p class="card-text">{{post.mensagem}}</p>
                     </div>

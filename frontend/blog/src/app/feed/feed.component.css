@@ -1,0 +1,15 @@
+.icoITrash {
+    color: gray;
+}
+.icoITrash:hover {
+    color: red;
+}
+.socialcard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.icoClose{
+    background: transparent;
+}
